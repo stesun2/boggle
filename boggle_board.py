@@ -1,15 +1,17 @@
 import random
 
 class BoggleBoard:
-    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    length   = 4
+    # alphabet  = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    length    = 4
     
     # Create a X by X board of given length
-    def __init__(self, custom_length = None):
+    def __init__(self, dice_list, custom_length = None, random_seed = None):
+        # assert(len())
         # allow user to add custom length
         if custom_length is not None:
             self.length = custom_length
-        # if random_seed
+
+
         # Initialize board with underscores
         self.board = ["_" for _ in range(self.length ** 2)]
         self.print_board()
@@ -25,11 +27,11 @@ class BoggleBoard:
         
 
     def shake(self):
-        # loop through out board and randomly generate word
+        random.shuffle(self.dice_list)
+        # loop through our board and randomly generate alphabet character
         for i, _ in enumerate(self.board):
-            self.board[i] = random.choice(self.alphabet)
+            self.board[i] = self.dice_list[i].roll()
+        
+        # print board
         self.print_board()
         return self.board
-        # print("")
-        # pass
-        # print()

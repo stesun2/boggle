@@ -1,7 +1,29 @@
 from boggle_board import BoggleBoard 
+from boggle_dice import BoggleDice
 
-bb = BoggleBoard()
-bb.shake()
+# initialize dice
+dice_values_list = [
+            "AAEEGN",
+            "ELRTTY",
+            "AOOTTW",
+            "ABBJOO",
+            "EHRTVW",
+            "CIMOTU",
+            "DISTTY",
+            "EIOSST",
+            "DELRVY",
+            "ACHOPS",
+            "HIMNQU",
+            "EEINSU",
+            "EEGHNW",
+            "AFFKPS",
+            "HLNNRZ",
+            "DEILRX"
+            ]
+dice_list = [BoggleDice(s) for s in dice_values_list]
+
+# initialize 
+bb = BoggleBoard(dice_list)
 
 i = 4
 while i > 0:
